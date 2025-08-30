@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوظائف - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .job-details {
+            padding: 80px 0;
+            background: #131615af;
+        }
+        
+        .job-detail-card {
+            background: rgb(0, 119, 70, 0.63);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .job-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .job-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .job-icon-large {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #007746a1, #007746a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 30px;
+        }
+        
+        .job-icon-large i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .job-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .job-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .job-requirements {
+            background: #000000;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .job-requirements h3 {
+            color: #00ff95af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .job-requirements ul {
+            list-style: none;
+        }
+        
+        .job-requirements li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .job-requirements li:before {
+            content: '✓';
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .job-benefits {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .job-benefits h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .job-benefits ul {
+            list-style: none;
+        }
+        
+        .job-benefits li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .job-benefits li:before {
+            content: '★';
+            color: #FFD700;
+            position: absolute;
+            right: 0;
+        }
+        
+        .back-btn {
+            background: #00ff95af;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html#rules">القوانين</a></li>
+                <li><a href="index.html#explanations">الشروحات</a></li>
+                <li><a href="jobs.html" class="active">الوظائف</a></li>
+                <li><a href="index.html#store">المتجر</a></li>
+                <li><a href="index.html#discord" class="discord-btn"><i class="fab fa-discord"></i> انضم للدسكورد</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Job Details Section -->
+    <section class="job-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">الوظائف المتاحة</h1>
+            
+            <!-- LSPD Job -->
+            <div class="job-detail-card">
+                <div class="job-header">
+                    <div class="job-icon-large">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="job-title">
+                        <h2>LSPD - شرطة لوس سانتوس</h2>
+                        <p>انضم إلى قوات الشرطة وكن جزءًا من حفظ الأمن والنظام في المدينة</p>
+                    </div>
+                </div>
+                
+                <div class="job-requirements">
+                    <h3>المتطلبات:</h3>
+                    <ul>
+                        <li>العمر 18 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة 3 أشهر على الأقل</li>
+                        <li>وقت تواجد 4 ساعات يومياً</li>
+                        <li>مهارات تواصل ممتازة</li>
+                        <li>التزام بالقوانين والأنظمة</li>
+                        <li>القدرة على العمل تحت الضغط</li>
+                    </ul>
+                </div>
+                
+                <div class="job-benefits">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>راتب شهري مجزي</li>
+                        <li>سيارات شرطة حصرية</li>
+                        <li>أسلحة متقدمة</li>
+                        <li>تدريب شامل</li>
+                        <li>ترقيات دورية</li>
+                        <li>مكافآت إضافية</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-primary" onclick="openJobModal('lspd')">تقديم الآن</button>
+            </div>
+            
+            <!-- EMS Job -->
+            <div class="job-detail-card">
+                <div class="job-header">
+                    <div class="job-icon-large">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="job-title">
+                        <h2>EMS - خدمات الطوارئ الطبية</h2>
+                        <p>انضم إلى فريق الإسعاف وأنقذ الأرواح وقدم الرعاية الطبية</p>
+                    </div>
+                </div>
+                
+                <div class="job-requirements">
+                    <h3>المتطلبات:</h3>
+                    <ul>
+                        <li>العمر 18 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة 2 أشهر على الأقل</li>
+                        <li>وقت تواجد 3 ساعات يومياً</li>
+                        <li>مهارات طبية أساسية</li>
+                        <li>القدرة على التعامل مع الحالات الطارئة</li>
+                        <li>صبر وتفهم</li>
+                    </ul>
+                </div>
+                
+                <div class="job-benefits">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>راتب شهري جيد</li>
+                        <li>سيارات إسعاف متطورة</li>
+                        <li>معدات طبية متقدمة</li>
+                        <li>تدريب طبي شامل</li>
+                        <li>مكافآت على الحالات الصعبة</li>
+                        <li>فرص ترقية سريعة</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-primary" onclick="openJobModal('ems')">تقديم الآن</button>
+            </div>
+            
+            <!-- Admin Job -->
+            <div class="job-detail-card">
+                <div class="job-header">
+                    <div class="job-icon-large">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="job-title">
+                        <h2>الإدارة - فريق الإشراف</h2>
+                        <p>انضم إلى فريق الإدارة وساعد في إدارة السيرفر ومراقبة اللاعبين</p>
+                    </div>
+                </div>
+                
+                <div class="job-requirements">
+                    <h3>المتطلبات:</h3>
+                    <ul>
+                        <li>العمر 20 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة 6 أشهر على الأقل</li>
+                        <li>وقت تواجد 6 ساعات يومياً</li>
+                        <li>خبرة في إدارة السيرفرات</li>
+                        <li>مهارات حل المشاكل</li>
+                        <li>نضج ومسؤولية عالية</li>
+                    </ul>
+                </div>
+                
+                <div class="job-benefits">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>راتب شهري ممتاز</li>
+                        <li>صلاحيات إدارية شاملة</li>
+                        <li>سيارات إدارية حصرية</li>
+                        <li>مكافآت على الأداء المتميز</li>
+                        <li>فرص تطوير مهني</li>
+                        <li>مكانة خاصة في المجتمع</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-primary" onclick="openJobModal('admin')">تقديم الآن</button>
+            </div>
+            
+            <!-- Mechanic Job -->
+            <div class="job-detail-card">
+                <div class="job-header">
+                    <div class="job-icon-large">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="job-title">
+                        <h2>الميكانيك - إصلاح السيارات</h2>
+                        <p>كن ميكانيكي محترف وأصلح السيارات وقدم خدمات الصيانة</p>
+                    </div>
+                </div>
+                
+                <div class="job-requirements">
+                    <h3>المتطلبات:</h3>
+                    <ul>
+                        <li>العمر 16 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة شهر على الأقل</li>
+                        <li>وقت تواجد 2 ساعات يومياً</li>
+                        <li>معرفة أساسية بالميكانيكا</li>
+                        <li>دقة في العمل</li>
+                        <li>خدمة عملاء جيدة</li>
+                    </ul>
+                </div>
+                
+                <div class="job-benefits">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>راتب شهري مناسب</li>
+                        <li>ورشة عمل مجهزة</li>
+                        <li>أدوات إصلاح متطورة</li>
+                        <li>عمولة على الإصلاحات</li>
+                        <li>فرص تعلم مهارات جديدة</li>
+                        <li>عمل مستقل</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-primary" onclick="openJobModal('mechanic')">تقديم الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Application Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeJobModal()">&times;</span>
+            <h2 id="modalTitle">تقديم على وظيفة</h2>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">العمر:</label>
+                    <input type="number" id="age" name="age" min="16" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="steam">Steam ID:</label>
+                    <input type="text" id="steam" name="steam" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">وقت التواجد (ساعات يومياً):</label>
+                    <input type="number" id="time" name="time" min="1" max="24" required>
+                </div>
+                <div class="form-group">
+                    <label for="discord">Discord ID:</label>
+                    <input type="text" id="discord" name="discord" required>
+                </div>
+                <div class="form-group">
+                    <label for="experience">الخبرة في RP (أشهر):</label>
+                    <input type="number" id="experience" name="experience" min="0" max="60" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">لماذا تريد هذه الوظيفة؟</label>
+                    <textarea id="reason" name="reason" rows="4" required></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="closeJobModal()">إلغاء</button>
+                    <button type="submit">إرسال التقديم</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Add textarea styling
+        const style = document.createElement('style');
+        style.textContent = `
+            textarea {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-family: 'Cairo', sans-serif;
+                resize: vertical;
+                transition: border-color 0.3s ease;
+            }
+            
+            textarea:focus {
+                outline: none;
+                border-color: #FF6B35;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project CFW - سيرفر FiveM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="rules.html">القوانين</a></li>
+                <li><a href="explanations.html">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html">المتجر</a></li>
+                <li><a href="contact.html">التواصل</a></li>
+                <li><a href="https://discord.gg/sSxeHzgJFe" class="discord-btn"><i class="fab fa-discord"></i> انضم للدسكورد</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>مرحبًا بك في Project CFW</h1>
+            <p>جاهدين في تقديم أفضل تجربة RP في الشرق الأوسط</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="connectServer()">انضم إلينا الآن</button>
+                <button class="btn-secondary" onclick="scrollToSection('discord')">انضم للدسكورد</button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <h3>1,250+</h3>
+                <p>أعضاء في الدسكورد</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-heart"></i>
+                <h3>5,000+</h3>
+                <p>متابعين على السوشيال ميديا</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>من نحن</h2>
+                    <p>سيرفر PRRP سيرفر FiveM مختص بنظام CFW تأسس عام 2023 بهدف تقديم تجربة استثنائية</p>
+                    <button class="btn-primary" onclick="scrollToSection('rules')">اطلاع على القوانين</button>
+                </div>
+                <div class="about-image">
+                    <img src="https://media.discordapp.net/attachments/1376933241474257167/1405557657129062420/ABFEAF46-A23F-4D0D-9CD2-0F961D5DA1AD.png?ex=68b45b13&is=68b30993&hm=b72854ba801e35f984787058d31145dea5124155518b145a11cde35686f59f90&=&format=webp&quality=lossless&width=748&height=748" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules">
+        <div class="container">
+            <h2>قوانين السيرفر</h2>
+            <p>يمكنك قراءة القوانين بحسب تصنيفها</p>
+            
+            <div class="rules-tabs">
+                <button class="tab-btn active" onclick="showRules('server')">قوانين المدينة</button>
+                <button class="tab-btn" onclick="showRules('police')">قوانين الشرطة</button>
+                <button class="tab-btn" onclick="showRules('crime')">قوانين الجريمة</button>
+            </div>
+
+            <div id="server-rules" class="rules-content active">
+                <div class="rule-category">
+                    <h3>أساسية</h3>
+                    <ul>
+                        <li>يمنع دخول السيرفر من اي جهاز اخر غير الجهازك الخاص بك</li>
+                        <li>يمنع التحدث بالسياسة والاعراض والدين وأيضا المضايقات</li>
+                        <li>يمنع الكلام المشفر بجميع انواعه</li>
+                        <li>يمنع استخدام أدوات الغش</li>
+                        <li>يمنع استخدام اي جرافيكس او برنامج خارجي</li>
+                    </ul>
+                </div>
+                <div class="rule-category">
+                    <h3>الحياة الواقعية - RP</h3>
+                    <ul>
+                        <li>يجب عليك تقمص الشخصية داخل RP كأنك في الواقع</li>
+                        <li>سواء كانت شخصيتك: مسعف، محامي، عسكري، عصابه، مواطن</li>
+                    </ul>
+                </div>
+                <div class="rule-category">
+                    <h3>الحياة الجديدة</h3>
+                    <ul>
+                        <li>في حال اغمائك لا يمكنك الكلام أو الحركة</li>
+                        <li>عند الموت يجب عليك نسيان الاشخاص المتسببين بذلك فقط</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="police-rules" class="rules-content">
+                <div class="rule-category">
+                    <h3>قوانين الشرطة</h3>
+                    <ul>
+                        <li>يجب على الشرطة احترام حقوق المواطنين</li>
+                        <li>يمنع استخدام القوة المفرطة</li>
+                        <li>يجب إعطاء التحذيرات قبل استخدام القوة</li>
+                        <li>يمنع التعذيب أو الإساءة للمشتبه بهم</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="crime-rules" class="rules-content">
+                <div class="rule-category">
+                    <h3>قوانين الجريمة</h3>
+                    <ul>
+                        <li>يمنع القتل العشوائي RDM</li>
+                        <li>يمنع استخدام المركبة كسلاح VDM</li>
+                        <li>يجب التخطيط للسرقات بشكل واقعي</li>
+                        <li>يمنع الخطف بدون سبب منطقي</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="rules.html" class="btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                    عرض جميع القوانين
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explanations Section -->
+    <section id="explanations" class="explanations">
+        <div class="container">
+            <h2>الشروحات</h2>
+            <p>شروحات مرئية لمساعدتك في فهم السيرفر</p>
+            
+            <div class="explanations-grid">
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-key"></i>
+                    <h3>شرح نظام التفعيل</h3>
+                    <p>كيفية تفعيل حسابك في السيرفر</p>
+                </div>
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>شرح تقديم الشرطة</h3>
+                    <p>كيفية التقديم على وظيفة الشرطة</p>
+                </div>
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>شرح تقديم الصحة</h3>
+                    <p>كيفية التقديم على وظيفة الإسعاف</p>
+                </div>
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-wrench"></i>
+                    <h3>شرح نظام الميكانيك</h3>
+                    <p>كيفية العمل كميكانيكي</p>
+                </div>
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-users"></i>
+                    <h3>شرح نظام العصابات</h3>
+                    <p>كيفية إنشاء وإدارة العصابة</p>
+                </div>
+                <div class="explanation-card" onclick="window.location.href='explanations.html'">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>شرح نظام المشاريع</h3>
+                    <p>كيفية إنشاء وإدارة المشاريع</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="explanations.html" class="btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                    عرض جميع الشروحات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs">
+        <div class="container">
+            <h2>تقديم الوظائف</h2>
+            <p>اختر الوظيفة التي ترغب في التقديم عليها</p>
+            
+            <div class="jobs-grid">
+                <div class="job-card" onclick="window.location.href='jobs.html'">
+                    <div class="job-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>تقديم LSPD</h3>
+                    <p>انضم إلى قوات الشرطة وكن جزءًا من حفظ الأمن</p>
+                    <button class="btn-primary">عرض التفاصيل</button>
+                </div>
+                
+                <div class="job-card" onclick="window.location.href='jobs.html'">
+                    <div class="job-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>تقديم EMS</h3>
+                    <p>انضم إلى فريق الإسعاف وأنقذ الأرواح</p>
+                    <button class="btn-primary">عرض التفاصيل</button>
+                </div>
+                
+                <div class="job-card" onclick="window.location.href='jobs.html'">
+                    <div class="job-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>تقديم الادارة</h3>
+                    <p>انضم إلى الادارة لمعاونة الاداريين</p>
+                    <button class="btn-primary">عرض التفاصيل</button>
+                </div>
+                
+                <div class="job-card" onclick="window.location.href='jobs.html'">
+                    <div class="job-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>تقديم الميكانيك</h3>
+                    <p>كن ميكانيكي محترف وأصلح السيارات</p>
+                    <button class="btn-primary">عرض التفاصيل</button>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="jobs.html" class="btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                    عرض جميع الوظائف
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Section -->
+    <section id="store" class="store">
+        <div class="container">
+            <h2>متجر السيرفر</h2>
+            <p>احصل على مميزات خاصة في السيرفر</p>
+            
+            <div class="store-grid">
+                <div class="store-item" onclick="window.location.href='store.html'">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=VIP" alt="VIP Package">
+                    </div>
+                    <div class="item-content">
+                        <h3>باقة VIP</h3>
+                        <p>احصل على مميزات خاصة وامتيازات حصرية</p>
+                        <div class="item-price">$10</div>
+                        <button class="btn-primary">عرض التفاصيل</button>
+                    </div>
+                </div>
+                
+                <div class="store-item" onclick="window.location.href='store.html'">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Cars" alt="Cars Package">
+                    </div>
+                    <div class="item-content">
+                        <h3>باقة السيارات</h3>
+                        <p>احصل على سيارات حصرية ومميزة</p>
+                        <div class="item-price">$15</div>
+                        <button class="btn-primary">عرض التفاصيل</button>
+                    </div>
+                </div>
+                
+                <div class="store-item" onclick="window.location.href='store.html'">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Weapons" alt="Weapons Package">
+                    </div>
+                    <div class="item-content">
+                        <h3>باقة الأسلحة</h3>
+                        <p>احصل على أسلحة متقدمة وحصرية</p>
+                        <div class="item-price">$20</div>
+                        <button class="btn-primary">عرض التفاصيل</button>
+                    </div>
+                </div>
+                
+                <div class="store-item" onclick="window.location.href='store.html'">
+                    <div class="item-image">
+                        <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Style" alt="Cosmetics Package">
+                    </div>
+                    <div class="item-content">
+                        <h3>باقة التجميل</h3>
+                        <p>احصل على ملابس حصرية وإكسسوارات</p>
+                        <div class="item-price">$8</div>
+                        <button class="btn-primary">عرض التفاصيل</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="store.html" class="btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">
+                    عرض جميع المنتجات
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section id="discord" class="discord">
+        <div class="container">
+            <div class="discord-content">
+                <h2>انضم إلى مجتمعنا</h2>
+                <p>تواصل مع اللاعبين الآخرين واحصل على آخر الأخبار</p>
+                <button class="btn-discord" onclick="joinDiscord()">
+                    <i class="fab fa-discord"></i>
+                    انضم للدسكورد
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>جميع الحقوق محفوظة © Project CFW 2025</p>
+        </div>
+    </footer>
+
+    <!-- Job Application Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeJobModal()">&times;</span>
+            <h2 id="modalTitle">تقديم على وظيفة</h2>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label for="name">الاسم:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="steam">Steam:</label>
+                    <input type="text" id="steam" name="steam" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">وقت التواجد:</label>
+                    <input type="text" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="discord">Discord ID:</label>
+                    <input type="text" id="discord" name="discord" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="closeJobModal()">إلغاء</button>
+                    <button type="submit">إرسال التقديم</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Store Modal -->
+    <div id="storeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeStoreModal()">&times;</span>
+            <h2 id="storeModalTitle">شراء من المتجر</h2>
+            <div id="storeModalContent">
+                <p>سيتم إضافة نظام الدفع قريباً</p>
+                <button class="btn-primary" onclick="closeStoreModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

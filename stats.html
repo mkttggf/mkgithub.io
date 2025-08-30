@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإحصائيات - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .stats-details {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .stats-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .stats-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .stats-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff95af, #00ff95af);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 30px;
+        }
+        
+        .stats-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .stats-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .stats-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+        
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card p {
+            opacity: 0.9;
+        }
+        
+        .server-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .server-info h3 {
+            color: #00ff95af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .server-info ul {
+            list-style: none;
+        }
+        
+        .server-info li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .server-info li:before {
+            content: '✓';
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .back-btn {
+            background: #00ff95af;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .online-players {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .online-players h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .player-count {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .player-status {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .server-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff95af;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .uptime-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .uptime-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .uptime-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .uptime-stat {
+            text-align: center;
+        }
+        
+        .uptime-stat h4 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .uptime-stat p {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="rules.html">القوانين</a></li>
+                <li><a href="explanations.html">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html">المتجر</a></li>
+                <li><a href="contact.html">التواصل</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Stats Details Section -->
+    <section class="stats-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">إحصائيات السيرفر</h1>
+            
+            <!-- Online Players -->
+            <div class="stats-section">
+                <div class="stats-header">
+                    <div class="stats-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-title">
+                        <h2>اللاعبين المتصلين</h2>
+                        <p>معلومات مباشرة عن حالة السيرفر</p>
+                    </div>
+                </div>
+                
+                <div class="online-players">
+                    <h3>حالة السيرفر</h3>
+                    <div class="player-count" id="playerCount">0</div>
+                    <div class="player-status">لاعب متصل حالياً</div>
+                    <div class="server-status">
+                        <div class="status-indicator"></div>
+                        <span>السيرفر متصل ومتاح</span>
+                    </div>
+                </div>
+                
+                <div class="uptime-info">
+                    <h3>معلومات التشغيل</h3>
+                    <div class="uptime-stats">
+                        <div class="uptime-stat">
+                            <h4 id="uptimeDays">0</h4>
+                            <p>أيام</p>
+                        </div>
+                        <div class="uptime-stat">
+                            <h4 id="uptimeHours">0</h4>
+                            <p>ساعات</p>
+                        </div>
+                        <div class="uptime-stat">
+                            <h4 id="uptimeMinutes">0</h4>
+                            <p>دقائق</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Server Statistics -->
+            <div class="stats-section">
+                <div class="stats-header">
+                    <div class="stats-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stats-title">
+                        <h2>إحصائيات السيرفر</h2>
+                        <p>أرقام وإحصائيات مهمة</p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>1,250+</h3>
+                        <p>عضو في الدسكورد</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>5,000+</h3>
+                        <p>متابع على السوشيال ميديا</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>2023</h3>
+                        <p>سنة التأسيس</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.8</h3>
+                        <p>تقييم السيرفر</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7</h3>
+                        <p>متاح على مدار الساعة</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>100%</h3>
+                        <p>حماية ضد الغش</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Server Information -->
+            <div class="stats-section">
+                <div class="stats-header">
+                    <div class="stats-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="stats-title">
+                        <h2>معلومات السيرفر</h2>
+                        <p>تفاصيل تقنية عن السيرفر</p>
+                    </div>
+                </div>
+                
+                <div class="server-info">
+                    <h3>مميزات السيرفر:</h3>
+                    <ul>
+                        <li>سيرفر عالي الأداء مع معالج قوي</li>
+                        <li>ذاكرة عشوائية 32GB للسرعة القصوى</li>
+                        <li>اتصال إنترنت فائق السرعة</li>
+                        <li>نسخ احتياطية يومية</li>
+                        <li>حماية ضد الهجمات الإلكترونية</li>
+                        <li>دعم فني على مدار الساعة</li>
+                        <li>تحديثات دورية للأنظمة</li>
+                        <li>مراقبة مستمرة للأداء</li>
+                    </ul>
+                </div>
+                
+                <div class="server-info">
+                    <h3>الأنظمة المتوفرة:</h3>
+                    <ul>
+                        <li>نظام الوظائف المتقدم</li>
+                        <li>نظام الاقتصاد المتطور</li>
+                        <li>نظام العقارات والشركات</li>
+                        <li>نظام العصابات والتنظيمات</li>
+                        <li>نظام الشرطة والإسعاف</li>
+                        <li>نظام الميكانيك والورش</li>
+                        <li>نظام البنوك والمعاملات</li>
+                        <li>نظام الهاتف والرسائل</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Player Statistics -->
+            <div class="stats-section">
+                <div class="stats-header">
+                    <div class="stats-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="stats-title">
+                        <h2>إحصائيات اللاعبين</h2>
+                        <p>معلومات عن نشاط اللاعبين</p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>500+</h3>
+                        <p>لاعب جديد هذا الشهر</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>4.5</h3>
+                        <p>متوسط ساعات اللعب</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3>50+</h3>
+                        <p>بطولة منظمة</p>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <i class="fas fa-medal"></i>
+                        <h3>200+</h3>
+                        <p>جائزة مقدمة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Simulate real-time player count updates
+        function updatePlayerCount() {
+            const playerCount = document.getElementById('playerCount');
+            const currentCount = parseInt(playerCount.textContent);
+            
+            // Simulate random player count changes
+            const change = Math.floor(Math.random() * 10) - 5; // -5 to +5
+            const newCount = Math.max(0, Math.min(100, currentCount + change));
+            
+            playerCount.textContent = newCount;
+        }
+        
+        // Update player count every 30 seconds
+        setInterval(updatePlayerCount, 30000);
+        
+        // Simulate uptime counter
+        function updateUptime() {
+            const now = new Date();
+            const startTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 5); // 5 days ago
+            const diff = now - startTime;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('uptimeDays').textContent = days;
+            document.getElementById('uptimeHours').textContent = hours;
+            document.getElementById('uptimeMinutes').textContent = minutes;
+        }
+        
+        // Update uptime every minute
+        updateUptime();
+        setInterval(updateUptime, 60000);
+        
+        // Initialize with random player count
+        document.addEventListener('DOMContentLoaded', function() {
+            const playerCount = document.getElementById('playerCount');
+            playerCount.textContent = Math.floor(Math.random() * 50) + 20; // 20-70 players
+        });
+    </script>
+</body>
+</html>

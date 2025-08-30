@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروحات - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .explanations-details {
+            padding: 80px 0;
+            background: #131615af;
+        }
+        
+        .explanation-section {
+            background: rgb(0, 119, 70, 0.63);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .explanation-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .explanation-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .explanation-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #007746a1, #007746a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 30px;
+        }
+        
+        .explanation-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .explanation-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .explanation-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .explanation-content {
+            background: #000000;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .explanation-content h3 {
+            color: #00ff95af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .explanation-content ul {
+            list-style: none;
+        }
+        
+        .explanation-content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .explanation-content li:before {
+            content: '✓';
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .explanation-steps {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .explanation-steps h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .explanation-steps ol {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .explanation-steps li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-right: 30px;
+            counter-increment: step-counter;
+        }
+        
+        .explanation-steps li:before {
+            content: counter(step-counter);
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            background: rgba(255,255,255,0.2);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .back-btn {
+            background: #00ff95af;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .explanations-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid #00ff95af;
+            background: transparent;
+            color: #00ff95af;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: #00ff95af;
+            color: white;
+        }
+        
+        .explanation-section {
+            display: none;
+        }
+        
+        .explanation-section.active {
+            display: block;
+        }
+        
+        .video-placeholder {
+            background: #000000;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            color: #666;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://cdn.discordapp.com/attachments/1302295578113347694/1411134753675153438/MedalTVRedM20250828153232-1756510699.mp4?ex=68b435e6&is=68b2e466&hm=c78139b256b96199906efc66f9434cfbcc290395b2e90a89012d6522f5d7b6e8&" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="rules.html">القوانين</a></li>
+                <li><a href="explanations.html" class="active">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html">المتجر</a></li>
+                <li><a href="index.html#discord" class="discord-btn"><i class="fab fa-discord"></i> انضم للدسكورد</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Explanations Details Section -->
+    <section class="explanations-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">شروحات السيرفر</h1>
+            
+            <div class="explanations-tabs">
+                <button class="tab-btn active" onclick="showExplanation('activation')">نظام التفعيل</button>
+                <button class="tab-btn" onclick="showExplanation('police')">تقديم الشرطة</button>
+                <button class="tab-btn" onclick="showExplanation('ems')">تقديم الصحة</button>
+                <button class="tab-btn" onclick="showExplanation('mechanic')">نظام الميكانيك</button>
+                <button class="tab-btn" onclick="showExplanation('gangs')">نظام العصابات</button>
+                <button class="tab-btn" onclick="showExplanation('projects')">نظام المشاريع</button>
+            </div>
+            
+            <!-- Activation System -->
+            <div class="explanation-section active" id="activation-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>نظام التفعيل</h2>
+                        <p>كيفية تفعيل حسابك في السيرفر</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات التفعيل:</h3>
+                    <ol>
+                        <li>انضم إلى سيرفر الدسكورد</li>
+                        <li>اقرأ القوانين بعناية</li>
+                        <li>اكتب اسمك الحقيقي في روم #التفعيل</li>
+                        <li>انتظر رد الإدارة</li>
+                        <li>احصل على رتبة العضو</li>
+                        <li>انضم للسيرفر عبر FiveM</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>متطلبات التفعيل:</h3>
+                    <ul>
+                        <li>حساب Steam صالح</li>
+                        <li>نسخة FiveM محدثة</li>
+                        <li>اتصال إنترنت مستقر</li>
+                        <li>الالتزام بالقوانين</li>
+                        <li>السن 16 سنة أو أكثر</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Police Application -->
+            <div class="explanation-section" id="police-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>تقديم الشرطة</h2>
+                        <p>كيفية التقديم على وظيفة الشرطة</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات التقديم:</h3>
+                    <ol>
+                        <li>اقرأ قوانين الشرطة بعناية</li>
+                        <li>املأ نموذج التقديم</li>
+                        <li>انتظر مراجعة الإدارة</li>
+                        <li>احضر المقابلة الشخصية</li>
+                        <li>احصل على التدريب المطلوب</li>
+                        <li>ابدأ العمل كشرطي</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>متطلبات الشرطة:</h3>
+                    <ul>
+                        <li>العمر 18 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة 3 أشهر</li>
+                        <li>وقت تواجد 4 ساعات يومياً</li>
+                        <li>مهارات تواصل ممتازة</li>
+                        <li>التزام بالقوانين</li>
+                        <li>القدرة على العمل تحت الضغط</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- EMS Application -->
+            <div class="explanation-section" id="ems-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>تقديم الصحة</h2>
+                        <p>كيفية التقديم على وظيفة الإسعاف</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات التقديم:</h3>
+                    <ol>
+                        <li>اقرأ قوانين الإسعاف</li>
+                        <li>املأ نموذج التقديم</li>
+                        <li>احضر التدريب الطبي</li>
+                        <li>اجتز الاختبار العملي</li>
+                        <li>احصل على الشهادة</li>
+                        <li>ابدأ العمل كمسعف</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>متطلبات الإسعاف:</h3>
+                    <ul>
+                        <li>العمر 18 سنة أو أكثر</li>
+                        <li>خبرة في RP لمدة 2 أشهر</li>
+                        <li>وقت تواجد 3 ساعات يومياً</li>
+                        <li>مهارات طبية أساسية</li>
+                        <li>القدرة على التعامل مع الحالات الطارئة</li>
+                        <li>صبر وتفهم</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mechanic System -->
+            <div class="explanation-section" id="mechanic-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>نظام الميكانيك</h2>
+                        <p>كيفية العمل كميكانيكي</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات العمل:</h3>
+                    <ol>
+                        <li>احصل على رخصة الميكانيك</li>
+                        <li>اشتر ورشة عمل</li>
+                        <li>اشتر الأدوات المطلوبة</li>
+                        <li>ابدأ في استقبال العملاء</li>
+                        <li>أصلح السيارات المعطلة</li>
+                        <li>احصل على الأرباح</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>مميزات الميكانيك:</h3>
+                    <ul>
+                        <li>عمل مستقل</li>
+                        <li>أرباح جيدة</li>
+                        <li>ورشة عمل مجهزة</li>
+                        <li>أدوات إصلاح متطورة</li>
+                        <li>عمولة على الإصلاحات</li>
+                        <li>فرص تعلم مهارات جديدة</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Gangs System -->
+            <div class="explanation-section" id="gangs-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>نظام العصابات</h2>
+                        <p>كيفية إنشاء وإدارة العصابة</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات إنشاء العصابة:</h3>
+                    <ol>
+                        <li>اجمع 5 أعضاء على الأقل</li>
+                        <li>اختر اسم العصابة</li>
+                        <li>قدم طلب إنشاء العصابة</li>
+                        <li>انتظر موافقة الإدارة</li>
+                        <li>احصل على مقر العصابة</li>
+                        <li>ابدأ في الأنشطة الإجرامية</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>قوانين العصابات:</h3>
+                    <ul>
+                        <li>حد أقصى 20 عضو للعصابة</li>
+                        <li>يجب التخطيط للسرقات</li>
+                        <li>يمنع القتل العشوائي</li>
+                        <li>يجب احترام قوانين المرور</li>
+                        <li>يمنع سرقة السيارات الخاصة</li>
+                        <li>يجب إعطاء تحذير قبل السرقة</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Projects System -->
+            <div class="explanation-section" id="projects-explanation">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="explanation-title">
+                        <h2>نظام المشاريع</h2>
+                        <p>كيفية إنشاء وإدارة المشاريع</p>
+                    </div>
+                </div>
+                
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle" style="font-size: 3rem; margin-left: 10px;"></i>
+                    سيتم إضافة الفيديو قريباً
+                </div>
+                
+                <div class="explanation-steps">
+                    <h3>خطوات إنشاء المشروع:</h3>
+                    <ol>
+                        <li>اختر نوع المشروع</li>
+                        <li>اجمع رأس المال المطلوب</li>
+                        <li>اشتر الأرض أو المبنى</li>
+                        <li>قم بتجهيز المشروع</li>
+                        <li>وظف الموظفين المطلوبين</li>
+                        <li>ابدأ في العمل</li>
+                    </ol>
+                </div>
+                
+                <div class="explanation-content">
+                    <h3>أنواع المشاريع:</h3>
+                    <ul>
+                        <li>محلات تجارية</li>
+                        <li>مطاعم ومقاهي</li>
+                        <li>محطات بنزين</li>
+                        <li>مصانع</li>
+                        <li>مكاتب عقارية</li>
+                        <li>شركات تأمين</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Explanations tabs functionality
+        function showExplanation(explanationType) {
+            // Hide all explanation sections
+            const explanationSections = document.querySelectorAll('.explanation-section');
+            explanationSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected explanation section
+            const selectedSection = document.getElementById(explanationType + '-explanation');
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القوانين - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .rules-details {
+            padding: 80px 0;
+            background: #131615af;
+        }
+        
+        .rule-section {
+            background: rgb(0, 119, 70, 0.63);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .rule-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .rule-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .rule-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #007746a1, #007746a1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 30px;
+        }
+        
+        .rule-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .rule-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .rule-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .rule-content {
+            background: #000000;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .rule-content h3 {
+            color: #00ff95af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .rule-content ul {
+            list-style: none;
+        }
+        
+        .rule-content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .rule-content li:before {
+            content: '•';
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .rule-penalties {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .rule-penalties h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .rule-penalties ul {
+            list-style: none;
+        }
+        
+        .rule-penalties li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .rule-penalties li:before {
+            content: '⚠';
+            color: #00ff95af;
+            position: absolute;
+            right: 0;
+        }
+        
+        .back-btn {
+            background: #333;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+        
+        .rules-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid #00ff95af;
+            background: transparent;
+            color: #00ff95af;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: #00ff95af;
+            color: white;
+        }
+        
+        .rule-section {
+            display: none;
+        }
+        
+        .rule-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="rules.html" class="active">القوانين</a></li>
+                <li><a href="index.html#explanations">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html">المتجر</a></li>
+                <li><a href="index.html#discord" class="discord-btn"><i class="fab fa-discord"></i> انضم للدسكورد</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rules Details Section -->
+    <section class="rules-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">قوانين السيرفر</h1>
+            
+            <div class="rules-tabs">
+                <button class="tab-btn active" onclick="showRules('general')">القوانين العامة</button>
+                <button class="tab-btn" onclick="showRules('police')">قوانين الشرطة</button>
+                <button class="tab-btn" onclick="showRules('crime')">قوانين الجريمة</button>
+                <button class="tab-btn" onclick="showRules('rp')">قوانين الرول بلاي</button>
+            </div>
+            
+            <!-- General Rules -->
+            <div class="rule-section active" id="general-rules">
+                <div class="rule-header">
+                    <div class="rule-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="rule-title">
+                        <h2>القوانين العامة</h2>
+                        <p>القوانين الأساسية التي يجب على جميع اللاعبين الالتزام بها</p>
+                    </div>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>القوانين الأساسية:</h3>
+                    <ul>
+                        <li>يمنع دخول السيرفر من اي جهاز اخر غير الجهازك الخاص بك</li>
+                        <li>يمنع التحدث بالسياسة والاعراض والدين وأيضا المضايقات</li>
+                        <li>يمنع الكلام المشفر بجميع انواعه</li>
+                        <li>يمنع استخدام أدوات الغش كـ(القلتشات/الثغرات/استغلال أوامر الشات)</li>
+                        <li>يمنع استخدام اي جرافيكس او برنامج خارجي</li>
+                        <li>يمنع التحدث أو التلميح عن أمور خارج الرول بلاي</li>
+                        <li>يمنع الكتابة خارج الرول بلاي في جميع التطبيقات</li>
+                        <li>يمنع الكذب بالمسطلحات التالية (سحر/باخذ حبه/صداع)</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-penalties">
+                    <h3>العقوبات:</h3>
+                    <ul>
+                        <li>التحذير الأول: تحذير شفهي</li>
+                        <li>التحذير الثاني: تحذير كتابي</li>
+                        <li>التحذير الثالث: طرد مؤقت لمدة ساعة</li>
+                        <li>التحذير الرابع: طرد مؤقت لمدة يوم</li>
+                        <li>التحذير الخامس: حظر دائم</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Police Rules -->
+            <div class="rule-section" id="police-rules">
+                <div class="rule-header">
+                    <div class="rule-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="rule-title">
+                        <h2>قوانين الشرطة</h2>
+                        <p>القوانين الخاصة بقوات الشرطة وواجباتهم</p>
+                    </div>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>واجبات الشرطة:</h3>
+                    <ul>
+                        <li>يجب على الشرطة احترام حقوق المواطنين</li>
+                        <li>يجب إعطاء التحذيرات قبل استخدام القوة</li>
+                        <li>يمنع استخدام القوة المفرطة</li>
+                        <li>يمنع التعذيب أو الإساءة للمشتبه بهم</li>
+                        <li>يجب التحقق من الهوية قبل الاعتقال</li>
+                        <li>يجب إبلاغ المشتبه به بحقوقه</li>
+                        <li>يمنع التمييز على أساس العرق أو الدين</li>
+                        <li>يجب الحفاظ على السرية في التحقيقات</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>إجراءات الاعتقال:</h3>
+                    <ul>
+                        <li>يجب إبلاغ المشتبه به بالسبب</li>
+                        <li>يجب نقله إلى مركز الشرطة بأمان</li>
+                        <li>يجب تسجيل جميع الإجراءات</li>
+                        <li>يمنع إطلاق النار على الهاربين إلا في حالات الضرورة القصوى</li>
+                        <li>يجب إبلاغ العائلة في حالة الاعتقال</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-penalties">
+                    <h3>عقوبات الشرطة:</h3>
+                    <ul>
+                        <li>سوء استخدام السلطة: إيقاف مؤقت</li>
+                        <li>استخدام القوة المفرطة: إيقاف لمدة أسبوع</li>
+                        <li>التعذيب: إيقاف لمدة شهر</li>
+                        <li>الفساد: فصل نهائي</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Crime Rules -->
+            <div class="rule-section" id="crime-rules">
+                <div class="rule-header">
+                    <div class="rule-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <div class="rule-title">
+                        <h2>قوانين الجريمة</h2>
+                        <p>القوانين الخاصة بالأنشطة الإجرامية</p>
+                    </div>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>قوانين الجريمة:</h3>
+                    <ul>
+                        <li>يمنع القتل العشوائي RDM</li>
+                        <li>يمنع استخدام المركبة كسلاح VDM</li>
+                        <li>يجب التخطيط للسرقات بشكل واقعي</li>
+                        <li>يمنع الخطف بدون سبب منطقي</li>
+                        <li>يجب احترام قوانين المرور أثناء الهروب</li>
+                        <li>يمنع سرقة السيارات الخاصة</li>
+                        <li>يمنع سرقة الهيليكوبتر</li>
+                        <li>يجب إعطاء تحذير قبل السرقة</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>تسلسل السرقات:</h3>
+                    <ul>
+                        <li>Store Robbery - Police (4-5) | Criminals (1-3)</li>
+                        <li>ATM Robbery - Police (3-5) | Criminals (1-3)</li>
+                        <li>House Robbery - Police (4-6) | Criminals (1-4)</li>
+                        <li>Police Staff house - Police (5-7) | Criminals (2-5)</li>
+                        <li>DigitalDen Robbery - Police (5-7) | Criminals (2-2)</li>
+                        <li>Laundromat Robbery - Police (5-7) | Criminals (2-5)</li>
+                        <li>Cash Exchange Robbery - Police (5-8) | Criminals (3-6)</li>
+                        <li>Maze Bank - Police (10-12) | Criminals (5-10)</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-penalties">
+                    <h3>عقوبات الجريمة:</h3>
+                    <ul>
+                        <li>RDM: حظر لمدة 3 أيام</li>
+                        <li>VDM: حظر لمدة أسبوع</li>
+                        <li>سرقة بدون تخطيط: تحذير</li>
+                        <li>سرقة السيارات الخاصة: حظر لمدة يوم</li>
+                        <li>سرقة الهيليكوبتر: حظر لمدة 3 أيام</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- RP Rules -->
+            <div class="rule-section" id="rp-rules">
+                <div class="rule-header">
+                    <div class="rule-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="rule-title">
+                        <h2>قوانين الرول بلاي</h2>
+                        <p>القوانين الخاصة باللعب التمثيلي</p>
+                    </div>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>قوانين الرول بلاي:</h3>
+                    <ul>
+                        <li>يجب عليك تقمص الشخصية داخل RP كأنك في الواقع</li>
+                        <li>سواء كانت شخصيتك: مسعف، محامي، عسكري، عصابه، مواطن</li>
+                        <li>في حال اغمائك لا يمكنك الكلام أو الحركة</li>
+                        <li>عند الموت يجب عليك نسيان الاشخاص المتسببين بذلك فقط</li>
+                        <li>يجب عليك تقدير موقفك في اي حالة كنت متواجد فيها</li>
+                        <li>يجب عليك الخوف على حياتك بشكل واقعي عند التهديد</li>
+                        <li>يمنع التواصل أو استخدام اي معلومة من خارج RP</li>
+                        <li>يجب وضع اسم واقعي للكرتر</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-content">
+                    <h3>قوانين الكاركتر:</h3>
+                    <ul>
+                        <li>يجب كتابة اسم الكاركتر باللغة الإنجليزية</li>
+                        <li>يمنع تكرار الأسامي بين الكركترات</li>
+                        <li>يمنع ترابط شخصيتك الاولى بالشخصية الثانية</li>
+                        <li>يمنع تقليد الكركترات والاسماء الموجودة بالسيرفر</li>
+                        <li>يجب عليك تقمص شخصيتك مع الكل حتى ولو خويك</li>
+                        <li>في حال عندك شخصيه وبتغير الصوت حقها في اي برنامج يجب ان الصوت يبقى ثابت</li>
+                        <li>يجب الالتزام بالذوق العام في الملابس بشكل كامل</li>
+                    </ul>
+                </div>
+                
+                <div class="rule-penalties">
+                    <h3>عقوبات الرول بلاي:</h3>
+                    <ul>
+                        <li>عدم تقمص الشخصية: تحذير</li>
+                        <li>Meta Gaming: حظر لمدة يوم</li>
+                        <li>Power Gaming: حظر لمدة 3 أيام</li>
+                        <li>عدم تقدير الحياة: تحذير</li>
+                        <li>عدم الخوف على الحياة: تحذير</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Rules tabs functionality
+        function showRules(ruleType) {
+            // Hide all rule sections
+            const ruleSections = document.querySelectorAll('.rule-section');
+            ruleSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected rule section
+            const selectedSection = document.getElementById(ruleType + '-rules');
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

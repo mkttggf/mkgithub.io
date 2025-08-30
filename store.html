@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .store-details {
+            padding: 80px 0;
+            background: #131615af;
+        }
+        
+        .store-item-detail {
+            background: rgba(0, 255, 149, 0.63);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .store-item-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .item-image-large {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            margin-left: 30px;
+            object-fit: cover;
+        }
+        
+        .item-info h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .item-info .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ff95af;
+            margin-bottom: 10px;
+        }
+        
+        .item-info .description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .item-features {
+            background: #000000;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .item-features h3 {
+            color: #00ff95af;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .item-features ul {
+            list-style: none;
+        }
+        
+        .item-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .item-features li:before {
+            content: '✓';
+            color: #00ff95af;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .item-purchase {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .item-purchase h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .purchase-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .purchase-option {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .purchase-option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .back-btn {
+            background: #00ff95af;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .store-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 12px 24px;
+            border: 2px solid #00ff95af;
+            background: transparent;
+            color: #00ff95af;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: #00ff95af;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html#rules">القوانين</a></li>
+                <li><a href="index.html#explanations">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html" class="active">المتجر</a></li>
+                <li><a href="index.html#discord" class="discord-btn"><i class="fab fa-discord"></i> انضم للدسكورد</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Store Details Section -->
+    <section class="store-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">متجر السيرفر</h1>
+            
+            <div class="store-categories">
+                <button class="category-btn active" onclick="showCategory('all')">جميع المنتجات</button>
+                <button class="category-btn" onclick="showCategory('vip')">باقات VIP</button>
+                <button class="category-btn" onclick="showCategory('vehicles')">المركبات</button>
+                <button class="category-btn" onclick="showCategory('weapons')">الأسلحة</button>
+                <button class="category-btn" onclick="showCategory('cosmetics')">التجميل</button>
+            </div>
+            
+            <!-- VIP Package -->
+            <div class="store-item-detail" data-category="vip">
+                <div class="item-header">
+                    <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=VIP" alt="VIP Package" class="item-image-large">
+                    <div class="item-info">
+                        <h2>باقة VIP الأساسية</h2>
+                        <div class="price">$10</div>
+                        <div class="description">احصل على مميزات حصرية وامتيازات خاصة في السيرفر</div>
+                    </div>
+                </div>
+                
+                <div class="item-features">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>أولوية في الدخول للسيرفر</li>
+                        <li>ألوان خاصة في الشات</li>
+                        <li>مكافآت إضافية يومية</li>
+                        <li>خصم 10% على جميع المشتريات</li>
+                        <li>إمكانية تغيير الاسم مرة واحدة</li>
+                        <li>دعم فني متميز</li>
+                    </ul>
+                </div>
+                
+                <div class="item-purchase">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div class="purchase-options">
+                        <a href="https://www.paypal.com/your-link" target="_blank" class="purchase-option no-style-link">
+                            <i class="fab fa-paypal"></i> PayPal
+                          </a>                          
+                        <div class="purchase-option" onclick="purchaseItem('vip', 'stripe')">
+                            <i class="fas fa-credit-card"></i> بطاقة ائتمان
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('vip', 'crypto')">
+                            <i class="fab fa-bitcoin"></i> العملات الرقمية
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VIP Premium Package -->
+            <div class="store-item-detail" data-category="vip">
+                <div class="item-header">
+                    <img src="https://via.placeholder.com/200x150/FFD700/FFFFFF?text=VIP+Premium" alt="VIP Premium" class="item-image-large">
+                    <div class="item-info">
+                        <h2>باقة VIP المميزة</h2>
+                        <div class="price">$25</div>
+                        <div class="description">باقة شاملة مع جميع المميزات الحصرية</div>
+                    </div>
+                </div>
+                
+                <div class="item-features">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>جميع مميزات الباقة الأساسية</li>
+                        <li>سيارة حصرية مجانية</li>
+                        <li>سلاح حصري مجاني</li>
+                        <li>خصم 20% على جميع المشتريات</li>
+                        <li>إمكانية تغيير الاسم 3 مرات</li>
+                        <li>دعم فني على مدار الساعة</li>
+                        <li>مكافآت إضافية مضاعفة</li>
+                    </ul>
+                </div>
+                
+                <div class="item-purchase">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div class="purchase-options">
+                        <div class="purchase-option" onclick="purchaseItem('vip-premium', 'paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('vip-premium', 'stripe')">
+                            <i class="fas fa-credit-card"></i> بطاقة ائتمان
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('vip-premium', 'crypto')">
+                            <i class="fab fa-bitcoin"></i> العملات الرقمية
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cars Package -->
+            <div class="store-item-detail" data-category="vehicles">
+                <div class="item-header">
+                    <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Cars" alt="Cars Package" class="item-image-large">
+                    <div class="item-info">
+                        <h2>باقة السيارات الحصرية</h2>
+                        <div class="price">$15</div>
+                        <div class="description">احصل على سيارات حصرية ومميزة مع تعديلات خاصة</div>
+                    </div>
+                </div>
+                
+                <div class="item-features">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>سيارة رياضية حصرية</li>
+                        <li>ألوان مخصصة متعددة</li>
+                        <li>تعديلات خاصة للسيارة</li>
+                        <li>أولوية في طلبات السيارات</li>
+                        <li>ضمان لمدة شهر</li>
+                        <li>دعم فني للسيارة</li>
+                    </ul>
+                </div>
+                
+                <div class="item-purchase">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div class="purchase-options">
+                        <div class="purchase-option" onclick="purchaseItem('cars', 'paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('cars', 'stripe')">
+                            <i class="fas fa-credit-card"></i> بطاقة ائتمان
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('cars', 'crypto')">
+                            <i class="fab fa-bitcoin"></i> العملات الرقمية
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weapons Package -->
+            <div class="store-item-detail" data-category="weapons">
+                <div class="item-header">
+                    <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Weapons" alt="Weapons Package" class="item-image-large">
+                    <div class="item-info">
+                        <h2>باقة الأسلحة المتقدمة</h2>
+                        <div class="price">$20</div>
+                        <div class="description">احصل على أسلحة متقدمة وحصرية مع ذخيرة إضافية</div>
+                    </div>
+                </div>
+                
+                <div class="item-features">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>سلاح ناري متقدم</li>
+                        <li>سلاح أبيض حصري</li>
+                        <li>ذخيرة إضافية مجانية</li>
+                        <li>أولوية في شراء الأسلحة</li>
+                        <li>خصم 15% على الذخيرة</li>
+                        <li>تدريب على استخدام الأسلحة</li>
+                    </ul>
+                </div>
+                
+                <div class="item-purchase">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div class="purchase-options">
+                        <div class="purchase-option" onclick="purchaseItem('weapons', 'paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('weapons', 'stripe')">
+                            <i class="fas fa-credit-card"></i> بطاقة ائتمان
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('weapons', 'crypto')">
+                            <i class="fab fa-bitcoin"></i> العملات الرقمية
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cosmetics Package -->
+            <div class="store-item-detail" data-category="cosmetics">
+                <div class="item-header">
+                    <img src="https://via.placeholder.com/200x150/FF6B35/FFFFFF?text=Style" alt="Cosmetics Package" class="item-image-large">
+                    <div class="item-info">
+                        <h2>باقة التجميل والأناقة</h2>
+                        <div class="price">$8</div>
+                        <div class="description">احصل على ملابس حصرية وإكسسوارات مميزة</div>
+                    </div>
+                </div>
+                
+                <div class="item-features">
+                    <h3>المميزات:</h3>
+                    <ul>
+                        <li>ملابس حصرية متعددة</li>
+                        <li>إكسسوارات مميزة</li>
+                        <li>ألوان شعر حصرية</li>
+                        <li>تاتو حصري</li>
+                        <li>خصم 10% على الملابس</li>
+                        <li>تحديثات دورية للملابس</li>
+                    </ul>
+                </div>
+                
+                <div class="item-purchase">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div class="purchase-options">
+                        <div class="purchase-option" onclick="purchaseItem('cosmetics', 'paypal')">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('cosmetics', 'stripe')">
+                            <i class="fas fa-credit-card"></i> بطاقة ائتمان
+                        </div>
+                        <div class="purchase-option" onclick="purchaseItem('cosmetics', 'crypto')">
+                            <i class="fab fa-bitcoin"></i> العملات الرقمية
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Category filtering
+        function showCategory(category) {
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show/hide items
+            const items = document.querySelectorAll('.store-item-detail');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Purchase function
+        function purchaseItem(itemType, paymentMethod) {
+            const itemNames = {
+                'vip': 'باقة VIP الأساسية',
+                'vip-premium': 'باقة VIP المميزة',
+                'cars': 'باقة السيارات الحصرية',
+                'weapons': 'باقة الأسلحة المتقدمة',
+                'cosmetics': 'باقة التجميل والأناقة'
+            };
+            
+            const paymentMethods = {
+                'paypal': 'PayPal',
+                'stripe': 'بطاقة ائتمان',
+                'crypto': 'العملات الرقمية'
+            };
+            
+            alert(`سيتم توجيهك لصفحة الدفع عبر ${paymentMethods[paymentMethod]} لشراء ${itemNames[itemType]}`);
+            
+            // In a real application, this would redirect to payment gateway
+            // window.location.href = `payment.php?item=${itemType}&method=${paymentMethod}`;
+        }
+    </script>
+</body>
+</html>

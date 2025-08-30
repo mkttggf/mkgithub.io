@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التواصل - Project CFW</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-details {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .contact-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00ff95af, #000000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 30px;
+        }
+        
+        .contact-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .contact-title h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .contact-title p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+        
+        .contact-form {
+            background: #222222;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s ease;
+            background-color: #333;
+            color: #ffffff;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00ff95af;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        .contact-info li:before {
+            content: '•';
+            color: #FFD700;
+            position: absolute;
+            right: 0;
+        }
+        
+        .back-btn {
+            background: #00ff95af;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: #222222;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .social-link i {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        .social-link.discord {
+            background: #00ff95af;
+            color: white;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://media.discordapp.net/attachments/1367820326767169647/1398903722452582450/9ae8daaa-9cf8-429a-822f-17773afc6af3.png?ex=68b489dd&is=68b3385d&hm=8d053d32bb9a733ccb95788b3f094163b9bdf4740113879bcd9ae9143d257e2d&=&format=webp&quality=lossless" alt="Project Logo">
+                <span>Project CFW</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="rules.html">القوانين</a></li>
+                <li><a href="explanations.html">الشروحات</a></li>
+                <li><a href="jobs.html">الوظائف</a></li>
+                <li><a href="store.html">المتجر</a></li>
+                <li><a href="contact.html" class="active">التواصل</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Details Section -->
+    <section class="contact-details">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            
+            <h1 style="text-align: center; font-size: 3rem; margin-bottom: 50px; color: #333;">تواصل معنا</h1>
+            
+            <!-- Contact Form -->
+            <div class="contact-section">
+                <div class="contact-header">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-title">
+                        <h2>راسل الإدارة</h2>
+                        <p>أرسل رسالة للإدارة وسنرد عليك في أقرب وقت ممكن</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="discord">Discord ID:</label>
+                        <input type="text" id="discord" name="discord" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">نوع الرسالة:</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">اختر نوع الرسالة</option>
+                            <option value="complaint">شكوى</option>
+                            <option value="suggestion">اقتراح</option>
+                            <option value="question">سؤال</option>
+                            <option value="bug">مشكلة تقنية</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">الرسالة:</label>
+                        <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-primary" style="font-size: 1.1rem; padding: 15px 40px;">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-section">
+                <div class="contact-header">
+                    <div class="contact-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="contact-title">
+                        <h2>معلومات التواصل</h2>
+                        <p>طرق التواصل المختلفة مع الإدارة</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>طرق التواصل المفضلة:</h3>
+                    <ul>
+                        <li>Discord: الطريقة الأسرع للتواصل مع الإدارة</li>
+                        <li>البريد الإلكتروني: للشكاوى الرسمية</li>
+                    </ul>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link discord" onclick="joinDiscord()">
+                        <i class="fab fa-discord"></i>
+                        <span>انضم للدسكورد</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="contact-section">
+                <div class="contact-header">
+                    <div class="contact-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="contact-title">
+                        <h2>الأسئلة الشائعة</h2>
+                        <p>إجابات على أكثر الأسئلة شيوعاً</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>أسئلة شائعة:</h3>
+                    <ul>
+                        <li>كيف أتقدم على وظيفة؟ - اذهب لصفحة الوظائف واختر الوظيفة المناسبة</li>
+                        <li>كيف أشتري من المتجر؟ - اذهب لصفحة المتجر واختر المنتج المطلوب</li>
+                        <li>كيف أبلغ عن لاعب؟ - استخدم أمر /report في اللعبة أو راسل الإدارة</li>
+                        <li>كيف أغير اسمي؟ - راسل الإدارة مع سبب التغيير</li>
+                        <li>كيف أحصل على رتبة؟ - شارك في الأنشطة وكن نشطاً</li>
+                        <li>كيف أبلغ عن مشكلة تقنية؟ - استخدم نموذج التواصل أعلاه</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Response Time -->
+            <div class="contact-section">
+                <div class="contact-header">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-title">
+                        <h2>أوقات الاستجابة</h2>
+                        <p>متى يمكنك توقع رد من الإدارة</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>أوقات الاستجابة المتوقعة:</h3>
+                    <ul>
+                        <li>Discord: خلال 30 دقيقة - 2 ساعة</li>
+                        <li>البريد الإلكتروني: خلال 24 ساعة</li>
+                        <li>الشكاوى العاجلة: خلال 15 دقيقة</li>
+                        <li>الاقتراحات: خلال 1-2 يوم</li>
+                        <li>المشاكل التقنية: خلال 2-4 ساعات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Create contact object
+            const contact = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                discord: formData.get('discord'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store contact in localStorage (in real app, this would be sent to server)
+            const contacts = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            contacts.push(contact);
+            localStorage.setItem('contactMessages', JSON.stringify(contacts));
+            
+            // Show success message
+            alert('تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت ممكن.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Social media functions
+        function joinDiscord() {
+            const discordLink = getDiscordInviteLink();
+            if (discordLink && discordLink !== "https://discord.gg/your-server-invite") {
+                window.open(discordLink, '_blank');
+            } else {
+                alert('سيتم إضافة رابط الدسكورد قريباً');
+            }
+        }
+    </script>
+</body>
+</html>
